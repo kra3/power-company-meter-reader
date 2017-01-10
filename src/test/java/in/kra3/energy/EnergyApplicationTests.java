@@ -1,4 +1,4 @@
-package in.kra3;
+package in.kra3.energy;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
