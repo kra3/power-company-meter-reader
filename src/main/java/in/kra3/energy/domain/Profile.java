@@ -1,22 +1,18 @@
-package in.kra3.energy.data;
+package in.kra3.energy.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
  * Created by Arun on 10-Jan-17.
  */
 @Entity
-public class Profile {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    private String month;
+public class Profile extends AbstractUniqueMonthYear {
+    @NotNull
     private String profile;
+
+    @NotNull
     private BigDecimal fraction;
 
     public BigDecimal getFraction() {
@@ -35,29 +31,18 @@ public class Profile {
         this.profile = profile;
     }
 
-    public String getMonth() {
-        return month;
-    }
-
-    public void setMonth(String month) {
-        this.month = month;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     @Override
     public String toString() {
         return "Profile{" +
-                "id=" + id +
-                ", month='" + month + '\'' +
+                "id=" + getId() +
                 ", profile='" + profile + '\'' +
                 ", fraction=" + fraction +
                 '}';
     }
+
+    /*
+        @todo: validations
+            - date & profile is unique (needs em)
+            - sum of all fraction for a profile per year is 1 (needs em)
+     */
 }
