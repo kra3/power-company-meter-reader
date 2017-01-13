@@ -1,6 +1,6 @@
 package in.kra3.energy.controller;
 
-import in.kra3.energy.domain.MeterReadingRepository;
+import in.kra3.energy.repositories.MeterReadingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

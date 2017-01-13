@@ -1,4 +1,4 @@
-package in.kra3.energy.domain;
+package in.kra3.energy.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -66,6 +66,14 @@ public class MeterReading extends AbstractEntity {
 
     public void setReading(Long reading) {
         this.reading = reading;
+    }
+
+    public Long getConsumption() {
+        return consumption;
+    }
+
+    public void setConsumption(Long consumption) {
+        this.consumption = consumption;
     }
 
     @Override

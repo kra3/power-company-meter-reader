@@ -1,4 +1,4 @@
-package in.kra3.energy.domain;
+package in.kra3.energy.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
