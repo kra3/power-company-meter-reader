@@ -11,7 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.validation.ConstraintViolationException;
+import java.util.List;
+import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,7 +22,6 @@ public class EnergyApplicationTests {
 
     @Autowired
     private MeterReadingRepository meterReadingRepository;
-
 
     @Test
     public void uniquenessOfProfileAndMonth() {
@@ -58,6 +58,18 @@ public class EnergyApplicationTests {
             Assert.fail("Corresponding fraction should exist for each month");
         } catch (Exception ignored) {
         }
+    }
+
+    @Test
+    public void checkFractionsForProfile(){
+        Profile p1 = new Profile("A", "JAN", .5);
+        Profile p2 = new Profile("A", "FEB", .5);
+        profileRepository.save(p1);
+        profileRepository.save(p2);
+        List<Profile> all = profileRepository.findByProfile("A");
+        Map res = profileRepository.getFractionsForProfile("A");
+        Assert.assertEquals((long) all.size(), res.get("numberOfFractions"));
+        Assert.assertEquals(res.get("totalOfFractions"), 1.0);
     }
 
 }
