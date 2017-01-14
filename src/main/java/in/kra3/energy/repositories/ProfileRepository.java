@@ -13,7 +13,7 @@ import java.util.Map;
  * Created by Arun on 10-Jan-17.
  */
 @Repository
-public interface ProfileRepository extends CrudRepository<Profile, Long>, EntityManagerAwareRepo {
+public interface ProfileRepository extends CrudRepository<Profile, Long> {
     @Query(value = "select new map(sum(p.fraction) as totalOfFractions, count(p.id) as numberOfFractions) from Profile p where p.profile = :profile")
     Map getFractionsForProfile(@Param("profile") String profile);
 

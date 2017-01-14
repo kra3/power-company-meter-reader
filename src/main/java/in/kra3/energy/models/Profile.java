@@ -67,6 +67,7 @@ public class Profile extends AbstractEntity {
                 '}';
     }
 
+
     /*
         @todo: validations
             - sum of all fraction for a profile per year is 1 (needs em)
