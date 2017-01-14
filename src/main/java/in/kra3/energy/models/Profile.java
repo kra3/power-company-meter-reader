@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -20,6 +21,10 @@ public class Profile extends AbstractEntity {
     @NotNull
     @Column(length = 3)
     @Size(max = 3)
+    @Pattern(
+            regexp = "^(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)$",
+            flags = Pattern.Flag.CASE_INSENSITIVE,
+            message = "Invalid month")
     private String month;
 
     @NotNull

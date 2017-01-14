@@ -33,9 +33,16 @@ public class EnergyApplicationTests {
             profileRepository.save(p2);
             profileRepository.save(p3);
             Assert.fail("There should be only one entry per month per profile.");
-        } catch (Exception e) {
-            System.out.println("->>>>>>>>>>>" + e);
-        }
+        } catch (Exception ignored) {}
+    }
+
+    @Test
+    public void testInvalidMonth(){
+        try {
+            Profile p1 = new Profile("A", "SUN", .5);
+            profileRepository.save(p1);
+            Assert.fail("Not a valid month");
+        }catch (Exception ignored){}
     }
 
     @Test

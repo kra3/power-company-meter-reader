@@ -3,6 +3,7 @@ package in.kra3.energy.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -19,6 +20,10 @@ public class MeterReading extends AbstractEntity {
     @NotNull
     @Column(length = 3)
     @Size(max = 3)
+    @Pattern(
+            regexp = "^(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)$",
+            flags = Pattern.Flag.CASE_INSENSITIVE,
+            message = "Invalid month")
     private String month;
 
     @NotNull
