@@ -12,8 +12,7 @@ import javax.validation.constraints.Size;
  * Created by Arun on 10-Jan-17.
  */
 @Entity
-@Table(name = "profile",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"profile", "month"}))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"profile", "month"}))
 public class Profile extends AbstractEntity {
     @NotNull
     private String profile;
@@ -71,10 +70,4 @@ public class Profile extends AbstractEntity {
                 ", fraction=" + fraction +
                 '}';
     }
-
-
-    /*
-        @todo: validations
-            - sum of all fraction for a profile per year is 1 (needs em)
-     */
 }

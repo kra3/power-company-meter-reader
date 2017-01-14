@@ -29,8 +29,6 @@ public class MeterReading extends AbstractEntity {
     @NotNull
     private Long reading;
 
-    private Long consumption;  // calculate & save this later.
-
     public MeterReading() {
     }
 
@@ -73,14 +71,6 @@ public class MeterReading extends AbstractEntity {
         this.reading = reading;
     }
 
-    public Long getConsumption() {
-        return consumption;
-    }
-
-    public void setConsumption(Long consumption) {
-        this.consumption = consumption;
-    }
-
     @Override
     public String toString() {
         return "MeterReading{" +
@@ -91,18 +81,4 @@ public class MeterReading extends AbstractEntity {
                 ", reading=" + reading +
                 '}';
     }
-
-    /*
-        @todo: validations
-            - each meter reading should be greater than previous months meter reading for connection
-            - for corresponding profile there should be a match in profile table (with fraction)
-            - validate consumption (ie., difference between readings)
-              formulae: get total consumption for year (DEC - JAN of readings)
-                        get that month's fraction
-                        multiply them and find the 25% of the result as tolerance
-                        consumption should fall in the range of [result-tolerance:result+tolerance]
-              ps: needs entire years reading (or JAN * DEC reading ;)
-                  should be done as a separate validation (not at insert) due to above requirement
-
-     */
 }

@@ -18,4 +18,6 @@ public interface ProfileRepository extends CrudRepository<Profile, Long> {
     Map getFractionsForProfile(@Param("profile") String profile);
 
     List<Profile> findByProfile(@Param("profile") String profile);
+
+    Profile findByProfileAndMonth(@Param("profile") String profile, @Param("month") String month);
 }
