@@ -11,6 +11,9 @@ Available CRUD endpoints are:
 They are HATEOS ready, hence will act as self documentation. 
 Appending `/search` to the endpoints will reveal available custom functions.
 
+A custom method is exposed from controller as well, to access it follow
+http://localhost:8080/api/meterReadings/getConsumptionForMonth?month=<3 letter month, eg: JAN>
+
 
 # How to run
 
